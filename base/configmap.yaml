@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: stellarinsure-config
+data:
+  ENVIRONMENT: production
+  BASE_URL: https://api.stellarinsure.example.com
+  CORS_ORIGINS: https://stellarinsure.example.com
+  STELLAR_NETWORK_PASSPHRASE: Test SDF Network ; September 2015
+  STELLAR_HORIZON_URL: https://horizon-testnet.stellar.org
+  REDIS_URL: redis://redis:6379/0
+  REDIS_ENABLED: "true"
+  REDIS_CACHE_TTL: "300"
+  DB_POOL_SIZE: "10"
+  DB_MAX_OVERFLOW: "20"
+  DB_POOL_TIMEOUT: "30"
+  DB_POOL_RECYCLE: "3600"
+  DB_POOL_PRE_PING: "true"
+  DB_ECHO: "false"
+  RATE_LIMIT_DEFAULT: 60/minute
+  RATE_LIMIT_AUTH: 10/minute
+  RATE_LIMIT_AUTH_BYPASS: "false"
+  WEBHOOK_MAX_RETRIES: "3"
+  WEBHOOK_DELIVERY_TIMEOUT: "30"
+  LOG_LEVEL: INFO
+  FEATURE_FLAG_ORACLE_V2: "false"
+  FEATURE_FLAG_CLAIM_AUTO_APPROVAL: "false"
+  FEATURE_FLAG_POOL_REBALANCING: "false"

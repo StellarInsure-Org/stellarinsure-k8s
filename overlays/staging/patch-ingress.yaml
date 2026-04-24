@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: stellarinsure-ingress
+spec:
+  tls:
+    - hosts:
+        - staging.stellarinsure.example.com
+        - api.staging.stellarinsure.example.com
+      secretName: stellarinsure-staging-tls
+  rules:
+    - host: staging.stellarinsure.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend
+                port:
+                  number: 3000
+    - host: api.staging.stellarinsure.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: backend
+                port:
+                  number: 8000
